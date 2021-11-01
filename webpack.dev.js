@@ -1,20 +1,24 @@
-const path = require("path")
-const common = require("./webpack.common")
-const { merge } = require("webpack-merge")
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const path = require('path')
+const common = require('./webpack.common')
+const { merge } = require('webpack-merge')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = merge(common, {
-  mode: "development",
+  mode: 'development',
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist")
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
       {
         test: [/.js$/],
         exclude: /node_modules/,
-        loader: require.resolve("babel-loader"),
+        loader: require.resolve('babel-loader'),
+        options: {
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+          plugins: ['@babel/plugin-transform-runtime'],
+        },
       },
       {
         test: [/.scss$/],
@@ -23,32 +27,31 @@ module.exports = merge(common, {
             loader: MiniCssExtractPlugin.loader,
           },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
+              modules: true,
               url: true,
               sourceMap: true,
-              importLoaders: 2
-            }
+            },
           },
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
-              sourceMap: true
-            }
-          }
+              sourceMap: true,
+            },
+          },
         ],
       },
       {
         test: [/.png$|.jpg$|.gif$|.svg$/],
-        type: "asset/inline",
+        type: 'asset/inline',
       },
     ],
   },
   plugins: [
-    // CSSファイルを外だしにするプラグイン
     new MiniCssExtractPlugin({
-      // ファイル名を設定します
-      filename: "style.css",
+      filename: '[name].[hash].css',
+      chunkFilename: '[id].[hash].css',
     }),
   ],
 })

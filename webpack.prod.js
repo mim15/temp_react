@@ -25,6 +25,7 @@ module.exports = merge(common, {
           {
             loader: "css-loader",
             options: {
+              modules: true,
               url: true,
               sourceMap: false,
               importLoaders: 2
@@ -46,7 +47,8 @@ module.exports = merge(common, {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "style.css",
+      filename: '[name].[hash].css',
+      chunkFilename: '[id].[hash].css'
     }),
   ],
 })

@@ -1,11 +1,41 @@
-import React from "react";
-import "./styles/style.scss";
+import React from 'react'
+import { BrowserRouter as Router, Link, Redirect, Route } from 'react-router-dom'
+import About from './pages/About'
+import Blog from './pages/Blog'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Portfolio from './pages/Portfolio'
+import { AuthContextProvider, useAuthState } from './utils/Firebase'
 
-const App = () => (
-  <div className="my-grid">
-    <h1>Helo React</h1>
-    <div className="aside"></div>
-  </div>
-);
+const AuthenticatedRoute = ({ component: C, ...props }) => {
+  const { isAuthenticated } = useAuthState()
+  console.log(`AuthenticatedRoute: ${isAuthenticated}`)
+  return (
+    <Route {...props} render={(routeProps) => (isAuthenticated ? <C {...routeProps} /> : <Redirect to="/login" />)} />
+  )
+}
 
-export default App;
+const UnauthenticatedRoute = ({ component: C, ...props }) => {
+  const { isAuthenticated } = useAuthState()
+  console.log(`UnauthenticatedRoute: ${isAuthenticated}`)
+  return <Route {...props} render={(routeProps) => (!isAuthenticated ? <C {...routeProps} /> : <Redirect to="/" />)} />
+}
+
+export default function App() {
+  return (
+    <AuthContextProvider>
+      <Router>
+        <div>
+          <Link to="/">Home</Link> | <Link to="/about">About</Link> | <Link to="/portfolio">Portfolio</Link> |{' '}
+          <Link to="/login">Login</Link> | <Link to="/blog">Blog</Link>
+        </div>
+        <AuthenticatedRoute exact path="/" component={Home} />
+        <AuthenticatedRoute exact path="/about" component={About} />
+        <AuthenticatedRoute exact path="/portfolio" component={Portfolio} />
+        <AuthenticatedRoute exact path="/blog" component={Blog} />
+
+        <UnauthenticatedRoute exact path="/login" component={Login} />
+      </Router>
+    </AuthContextProvider>
+  )
+}
