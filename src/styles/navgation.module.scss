@@ -1,0 +1,70 @@
+@import './variables.scss';
+
+.signout {
+  display: none;
+}
+
+.ly_toggleBtn {
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+  @include mq-up(lg) {
+    display: none;
+  }
+  .bl_toggleBtn {
+    display: inline-block;
+    cursor: pointer;
+    width: 24px;
+    height: 3px;
+    background-color: #000000;
+    margin-left: auto;
+    position: relative;
+    &:before,
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 3px;
+      background-color: #000000;
+      position: absolute;
+      left: 0;
+      transform-origin: 50% 50%;
+    }
+    &:before {
+      top: 7px;
+    }
+    &:after {
+      top: -7px;
+    }
+  }
+}
+
+.bl_headerConts_nav {
+  display: none;
+  margin-left: auto;
+  @include mq-up(lg) {
+    display: flex;
+  }
+  li:nth-child(n + 2) {
+    margin-left: 24px;
+  }
+}
+
+.bl_headerConts_ttl {
+  font-family: Roboto-Bold;
+  font-size: 24px;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.bl_headerConts_ttl::after {
+  content: '';
+  background-image: url('../asset/img/markIcon.svg');
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  vertical-align: baseline;
+  margin-left: 4px;
+}

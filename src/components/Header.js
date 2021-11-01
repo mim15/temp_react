@@ -1,22 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import styles from '../styles/header.module.scss'
+import Logo from './Logo'
+import Nav from './Navgation'
 
 const Header = () => {
   return (
     <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/portfolio">Portfolio</Link>
-          </li>
-        </ul>
-      </nav>
+      <header className={styles.ly_header}>
+        <div className={styles.ly_header_inner}>
+          <nav className={styles.bl_headerConts}>
+            <Logo />
+            <Nav />
+          </nav>
+        </div>
+      </header>
     </>
   )
 }

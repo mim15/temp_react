@@ -1,0 +1,23 @@
+@import './variables.scss';
+
+.ly_footer {
+  background-color: #383838;
+  .ly_footer_inner {
+    padding: 0 16px;
+    @include mq-up(md) {
+      padding: 0 64px;
+    }
+    .bl_headerConts {
+      display: flex;
+      align-items: center;
+      height: 40px;
+    }
+  }
+}
+
+.el_cpTtl {
+  font-family: 'Roboto-Regular';
+  font-size: 12px;
+  line-height: 12px;
+  color: #ffffff;
+}

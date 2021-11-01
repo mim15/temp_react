@@ -1,0 +1,54 @@
+@import './variables.scss';
+
+.ly_body {
+  height: calc(100vh - 137px);
+  padding: 0 16px;
+  @include mq-up(lg) {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  // background: url(../asset/img/VM_test.png) center / cover;
+  .ly_body_inner {
+    padding-top: 10%;
+    .bl_bodyTxt {
+      font-family: 'Roboto-Black';
+      font-size: 48px;
+      line-height: 130%;
+      @include mq-up(lg) {
+        font-size: 72px;
+        line-height: 150%;
+      }
+    }
+    .bl_bodyConts {
+      margin-top: 35%;
+      @include mq-up(lg) {
+        display: none;
+      }
+      .bl_bodyConts_nav {
+        display: block;
+        li:nth-child(n + 2) {
+          margin-top: 24px;
+        }
+        li {
+          .bl_bodyConts_ttl {
+            font-family: Roboto-Bold;
+            font-size: 24px;
+            line-height: 26px;
+            text-transform: uppercase;
+            color: #1a1a1a;
+            text-decoration: none;
+          }
+          .bl_bodyConts_ttl::after {
+            content: '';
+            background-image: url('../asset/img/markIcon.svg');
+            display: inline-block;
+            height: 8px;
+            width: 8px;
+            vertical-align: baseline;
+            margin-left: 4px;
+          }
+        }
+      }
+    }
+  }
+}

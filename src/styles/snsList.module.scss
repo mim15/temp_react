@@ -1,0 +1,15 @@
+.bl_footerConts {
+  margin-left: auto;
+  .bl_footerConts_nav {
+    display: flex;
+    li:nth-child(n + 2) {
+      margin-left: 8px;
+    }
+    li {
+      a {
+        display: inline-block;
+        height: 24px;
+      }
+    }
+  }
+}

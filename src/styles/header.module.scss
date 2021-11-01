@@ -1,0 +1,19 @@
+@import './reset.scss';
+@import './variables.scss';
+
+.ly_header {
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  .ly_header_inner {
+    padding: 0 16px;
+    box-sizing: border-box;
+    @include mq-up(md) {
+      padding: 0 64px;
+    }
+    .bl_headerConts {
+      display: flex;
+      height: 96px;
+      align-items: center;
+    }
+  }
+}

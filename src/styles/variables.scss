@@ -1,0 +1,42 @@
+// breakpoints
+$breakpoint-up: (
+  'sm': 'screen and (min-width: 575.98px)',
+  'md': 'screen and (min-width: 767.98px)',
+  'lg': 'screen and (min-width: 991.98px)',
+  'xl': 'screen and (min-width: 1199.98px)',
+) !default;
+
+$breakpoint-down: (
+  'sm': 'screen and (max-width: 575.98px)',
+  'md': 'screen and (max-width: 767.98px)',
+  'lg': 'screen and (max-width: 991.98px)',
+  'xl': 'screen and (max-width: 1199.98px)',
+) !default;
+
+@mixin mq-up($breakpoint: md) {
+  @media #{map-get($breakpoint-up, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mq-down($breakpoint: md) {
+  @media #{map-get($breakpoint-down, $breakpoint)} {
+    @content;
+  }
+}
+
+// font setting
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url('../asset/font/Roboto-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url('../asset/font/Roboto-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto-Black';
+  src: url('../asset/font/Roboto-Black.woff2') format('woff2');
+}

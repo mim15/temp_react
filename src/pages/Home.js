@@ -1,14 +1,42 @@
-import { getAuth, signOut } from 'firebase/auth'
 import React from 'react'
-import { useAuthState } from '../utils/Firebase'
+import { Link } from 'react-router-dom'
+import Layout from '../components/Layout/Layout'
+import styles from '../styles/home.module.scss'
 
 export default function Home() {
-  const { user } = useAuthState()
-
+  const text = 'Design\nis chewing gum\nfor me'
   return (
     <>
-      <h1>Welcome {user?.email}</h1>
-      <button onClick={() => signOut(getAuth())}>Sign out</button>
+      <Layout>
+        <div className={styles.ly_body}>
+          <div className={styles.ly_body_inner}>
+            <h1 className={styles.bl_bodyTxt}>
+              {text.split('\n').map((i, key) => {
+                return <div key={key}>{i}</div>
+              })}
+            </h1>
+            <nav className={styles.bl_bodyConts}>
+              <ul className={styles.bl_bodyConts_nav}>
+                <li>
+                  <Link to="/about" className={styles.bl_bodyConts_ttl}>
+                    About me
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/portfolio" className={styles.bl_bodyConts_ttl}>
+                    Portfolio
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/blog" className={styles.bl_bodyConts_ttl}>
+                    Blog
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </Layout>
     </>
   )
 }

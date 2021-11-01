@@ -25,10 +25,6 @@ export default function App() {
   return (
     <AuthContextProvider>
       <Router>
-        <div>
-          <Link to="/">Home</Link> | <Link to="/about">About</Link> | <Link to="/portfolio">Portfolio</Link> |{' '}
-          <Link to="/login">Login</Link> | <Link to="/blog">Blog</Link>
-        </div>
         <AuthenticatedRoute exact path="/" component={Home} />
         <AuthenticatedRoute exact path="/about" component={About} />
         <AuthenticatedRoute exact path="/portfolio" component={Portfolio} />
