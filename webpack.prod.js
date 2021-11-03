@@ -1,20 +1,24 @@
-const path = require("path")
-const common = require("./webpack.common")
-const { merge } = require("webpack-merge")
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const path = require('path')
+const common = require('./webpack.common')
+const { merge } = require('webpack-merge')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = merge(common, {
-  mode: "production",
+  mode: 'production',
   output: {
-    filename: "bundle.[hash].js",
-    path: path.resolve(__dirname, "dist")
+    filename: 'bundle.[hash].js',
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
       {
         test: [/.js$/],
         exclude: /node_modules/,
-        loader: require.resolve("babel-loader"),
+        loader: require.resolve('babel-loader'),
+        options: {
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+          plugins: ['@babel/plugin-transform-runtime'],
+        },
       },
       {
         test: [/.scss$/],
@@ -23,32 +27,32 @@ module.exports = merge(common, {
             loader: MiniCssExtractPlugin.loader,
           },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               modules: true,
               url: true,
               sourceMap: false,
-              importLoaders: 2
-            }
+              importLoaders: 2,
+            },
           },
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
-              sourceMap: false
-            }
-          }
+              sourceMap: false,
+            },
+          },
         ],
       },
       {
         test: [/.png$|.jpg$|.gif$|.svg$/],
-        type: "asset/resource",
+        type: 'asset/resource',
       },
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css',
-      chunkFilename: '[id].[hash].css'
+      chunkFilename: '[id].[hash].css',
     }),
   ],
 })

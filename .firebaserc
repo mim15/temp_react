@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "mim-react"
+    "release": "mim-react",
+    "develop": "develop-project-id"
   }
 }
