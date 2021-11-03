@@ -19,6 +19,13 @@ module.exports = {
   resolve: {
     modules: [__dirname, 'src', 'node_modules'],
     extensions: ['*', '.js', '.jsx', '.tsx', '.ts'],
+    alias: {
+      '@/components': path.resolve(__dirname, 'src/components'),
+      '@/styles': path.resolve(__dirname, 'src/styles'),
+      '@/pages': path.resolve(__dirname, 'src/pages'),
+      '@/utils': path.resolve(__dirname, 'src/utils'),
+      '@/assets': path.resolve(__dirname, 'src/assets'),
+    },
   },
   devServer: {
     static: {

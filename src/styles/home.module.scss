@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import '@/styles/variables.scss';
 
 .ly_body {
   height: calc(100vh - 137px);
@@ -7,7 +7,7 @@
     max-width: 1200px;
     margin: 0 auto;
   }
-  // background: url(../asset/img/VM_test.png) center / cover;
+  // background: url(@/assets/img/VM_test.png) center / cover;
   .ly_body_inner {
     padding-top: 10%;
     .bl_bodyTxt {
@@ -40,7 +40,7 @@
           }
           .bl_bodyConts_ttl::after {
             content: '';
-            background-image: url('../asset/img/markIcon.svg');
+            background-image: url('@/assets/img/markIcon.svg');
             display: inline-block;
             height: 8px;
             width: 8px;

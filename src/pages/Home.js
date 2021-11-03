@@ -1,7 +1,7 @@
+import Layout from '@/components/Layout/Layout'
+import styles from '@/styles/home.module.scss'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Layout from '../components/Layout/Layout'
-import styles from '../styles/home.module.scss'
 
 export default function Home() {
   const text = 'Design\nis chewing gum\nfor me'

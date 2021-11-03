@@ -1,7 +1,7 @@
+import Logo from '@/components/Logo'
+import Nav from '@/components/Navgation'
+import styles from '@/styles/header.module.scss'
 import React from 'react'
-import styles from '../styles/header.module.scss'
-import Logo from './Logo'
-import Nav from './Navgation'
 
 const Header = () => {
   return (

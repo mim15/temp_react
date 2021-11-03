@@ -1,11 +1,11 @@
+import About from '@/pages/About'
+import Blog from '@/pages/Blog'
+import Home from '@/pages/Home'
+import Login from '@/pages/Login'
+import Portfolio from '@/pages/Portfolio'
+import { AuthContextProvider, useAuthState } from '@/utils/Firebase'
 import React from 'react'
-import { BrowserRouter as Router, Link, Redirect, Route } from 'react-router-dom'
-import About from './pages/About'
-import Blog from './pages/Blog'
-import Home from './pages/Home'
-import Login from './pages/Login'
-import Portfolio from './pages/Portfolio'
-import { AuthContextProvider, useAuthState } from './utils/Firebase'
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 
 const AuthenticatedRoute = ({ component: C, ...props }) => {
   const { isAuthenticated } = useAuthState()
@@ -25,12 +25,14 @@ export default function App() {
   return (
     <AuthContextProvider>
       <Router>
-        <AuthenticatedRoute exact path="/" component={Home} />
-        <AuthenticatedRoute exact path="/about" component={About} />
-        <AuthenticatedRoute exact path="/portfolio" component={Portfolio} />
-        <AuthenticatedRoute exact path="/blog" component={Blog} />
+        <Switch>
+          <AuthenticatedRoute exact path="/" component={Home} />
+          <AuthenticatedRoute exact path="/about" component={About} />
+          <AuthenticatedRoute exact path="/portfolio" component={Portfolio} />
+          <AuthenticatedRoute exact path="/blog" component={Blog} />
 
-        <UnauthenticatedRoute exact path="/login" component={Login} />
+          <UnauthenticatedRoute exact path="/login" component={Login} />
+        </Switch>
       </Router>
     </AuthContextProvider>
   )

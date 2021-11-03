@@ -1,6 +1,7 @@
-@import './variables.scss';
+@import '@/styles/variables.scss';
 
 .ly_footer {
+  z-index: 5;
   background-color: #383838;
   .ly_footer_inner {
     padding: 0 16px;

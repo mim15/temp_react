@@ -28,15 +28,20 @@ $breakpoint-down: (
 // font setting
 @font-face {
   font-family: 'Roboto-Bold';
-  src: url('../asset/font/Roboto-Bold.woff2') format('woff2');
+  src: url('@/assets/font/Roboto-Bold.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Roboto-Regular';
-  src: url('../asset/font/Roboto-Regular.woff2') format('woff2');
+  src: url('@/assets/font/Roboto-Regular.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Roboto-Black';
-  src: url('../asset/font/Roboto-Black.woff2') format('woff2');
+  src: url('@/assets/font/Roboto-Black.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'NotoSerifJP-R';
+  src: url('@/assets/font/NotoSerifJP-Regular.woff2') format('woff2');
 }

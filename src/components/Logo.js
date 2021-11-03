@@ -1,7 +1,7 @@
+import mimLogo from '@/assets/img/mimLogo.svg'
+import styles from '@/styles/logo.module.scss'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import mimLogo from '../asset/img/mimLogo.svg'
-import styles from '../styles/logo.module.scss'
 
 const Logo = () => {
   return (

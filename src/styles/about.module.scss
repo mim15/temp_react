@@ -1,0 +1,132 @@
+@import '@/styles/variables.scss';
+
+.ly_cont {
+  padding: 0 16px;
+  margin-bottom: 72px;
+  @include mq-up(md) {
+  }
+  @include mq-up(xl) {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: calc(100vh - 137px);
+  }
+  .bl_contTitle {
+    padding-top: 16px;
+    font-family: Roboto-Bold;
+    font-size: 24px;
+    line-height: 26px;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    text-decoration: none;
+    @include mq-up(xl) {
+      padding-top: 32px;
+    }
+  }
+  .bl_contTitle::after {
+    content: '';
+    background-image: url('@/assets/img/markIcon.svg');
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    vertical-align: baseline;
+    margin-left: 4px;
+  }
+  .ly_profileMedia {
+    @include mq-up(lg) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .bl_profileBody {
+      margin: 0 24px;
+      @include mq-up(xl) {
+        width: 50%;
+
+        margin: 0 auto;
+        padding: 0 30px;
+      }
+      .bl_profileTitle {
+        display: none;
+      }
+      .bl_profileName_jp {
+        margin-top: 40px;
+        font-family: 'NotoSerifJP-R';
+        font-size: 24px;
+        line-height: 26px;
+      }
+      .bl_profileName_en {
+        margin-top: 8px;
+        font-family: 'NotoSerifJP-R';
+        font-size: 10px;
+        line-height: 150%;
+      }
+      .bl_profileDiscription_jp {
+        margin-top: 20px;
+        font-family: 'NotoSerifJP-R';
+        font-size: 14px;
+        line-height: 150%;
+      }
+      .bl_profileDiscription_en {
+        margin-top: 40px;
+        font-family: 'NotoSerifJP-R';
+        font-size: 14px;
+        line-height: 150%;
+      }
+    }
+  }
+
+  .bl_contsubTitle {
+    padding-top: 16px;
+    font-family: Roboto-Bold;
+    font-size: 24px;
+    line-height: 26px;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    text-decoration: none;
+    @include mq-up(xl) {
+      padding-top: 120px;
+    }
+  }
+  .bl_contsubTitle::after {
+    content: '';
+    background-image: url('@/assets/img/markIcon.svg');
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    vertical-align: baseline;
+    margin-left: 4px;
+  }
+
+  .bl_skillList {
+    margin-top: 16px;
+    padding: 0 24px;
+    @include mq-up(lg) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .bl_skillItem {
+      margin-top: 16px;
+      @include mq-up(lg) {
+        width: 50%;
+        padding-left: 30px;
+      }
+
+      .bl_skillTitle {
+        font-family: 'NotoSerifJP-R';
+        font-size: 14px;
+        line-height: 150%;
+        span {
+          margin: 0 4px;
+        }
+      }
+      .bl_skillBar {
+        width: 100%;
+        margin-top: 8px;
+        @include mq-up(lg) {
+          width: 70%;
+        }
+      }
+    }
+  }
+}
