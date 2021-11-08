@@ -1,39 +1,31 @@
+import PrivateRoute from '@/components/PrivateRoute'
+import * as ROUTES from '@/constants/routes'
+import { useAuth } from '@/context/AuthContext'
 import About from '@/pages/About'
-import Blog from '@/pages/Blog'
+import BlogList from '@/pages/BlogList'
 import Home from '@/pages/Home'
 import Login from '@/pages/Login'
-import Portfolio from '@/pages/Portfolio'
-import { AuthContextProvider, useAuthState } from '@/utils/Firebase'
+import PortfolioList from '@/pages/PortfolioList'
 import React from 'react'
-import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-const AuthenticatedRoute = ({ component: C, ...props }) => {
-  const { isAuthenticated } = useAuthState()
-  console.log(`AuthenticatedRoute: ${isAuthenticated}`)
-  return (
-    <Route {...props} render={(routeProps) => (isAuthenticated ? <C {...routeProps} /> : <Redirect to="/login" />)} />
+const App = () => {
+  const { isLoading } = useAuth()
+  return isLoading ? (
+    <h1>hold on, loading...</h1>
+  ) : (
+    <Router>
+      <Switch>
+        <Route path={ROUTES.LOGIN} component={Login} />
+        <Route path={ROUTES.ABOUT} component={About} />
+        <Route path={ROUTES.BLOG} component={BlogList} />
+        <Route path={ROUTES.PORTFOLIO} component={PortfolioList} />
+        <PrivateRoute path={ROUTES.HOME}>
+          <Home />
+        </PrivateRoute>
+      </Switch>
+    </Router>
   )
 }
 
-const UnauthenticatedRoute = ({ component: C, ...props }) => {
-  const { isAuthenticated } = useAuthState()
-  console.log(`UnauthenticatedRoute: ${isAuthenticated}`)
-  return <Route {...props} render={(routeProps) => (!isAuthenticated ? <C {...routeProps} /> : <Redirect to="/" />)} />
-}
-
-export default function App() {
-  return (
-    <AuthContextProvider>
-      <Router>
-        <Switch>
-          <AuthenticatedRoute exact path="/" component={Home} />
-          <AuthenticatedRoute exact path="/about" component={About} />
-          <AuthenticatedRoute exact path="/portfolio" component={Portfolio} />
-          <AuthenticatedRoute exact path="/blog" component={Blog} />
-
-          <UnauthenticatedRoute exact path="/login" component={Login} />
-        </Switch>
-      </Router>
-    </AuthContextProvider>
-  )
-}
+export default App

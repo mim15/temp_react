@@ -1,25 +1,29 @@
 import BodyIcon from '@/components/B_snsIcon'
 import Logo from '@/components/Logo'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
-import React, { useCallback } from 'react'
+import { HOME } from '@/constants/routes'
+import { useAuth } from '@/context/AuthContext'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 export default function Login() {
-  const handleSubmit = useCallback(async (e) => {
-    e.preventDefault()
-
-    const { email, password } = e.target.elements
-    const auth = getAuth()
-    try {
-      await signInWithEmailAndPassword(auth, email.value, password.value)
-    } catch (e) {
-      alert(e.message)
-    }
-  }, [])
+  const [emailValue, setEmailValue] = useState('')
+  const [passwordValue, setPasswordValue] = useState('')
+  const auth = useAuth()
+  let history = useHistory()
 
   return (
     <>
       <main>
-        <form onSubmit={handleSubmit}>
+        <form
+          onSubmit={(event) => {
+            event.preventDefault()
+            auth.signin({
+              email: emailValue,
+              password: passwordValue,
+              callback: () => history.push(HOME),
+            })
+          }}
+        >
           <h1>Login</h1>
           <Logo />
           <section>
@@ -27,13 +31,23 @@ export default function Login() {
               <label htmlFor="email">
                 <span>E-mail</span>
               </label>
-              <input type="email" id="email" name="usermail" />
+              <input
+                type="email"
+                placeholder="Email"
+                value={emailValue}
+                onChange={(event) => setEmailValue(event.target.value)}
+              />
             </p>
             <p>
               <label htmlFor="pwd">
                 <span>Password</span>
               </label>
-              <input type="password" id="pwd" name="password" />
+              <input
+                type="password"
+                placeholder="Password"
+                value={passwordValue}
+                onChange={(event) => setPasswordValue(event.target.value)}
+              />
             </p>
           </section>
           <section>

@@ -1,0 +1,5 @@
+export const HOME = '/'
+export const LOGIN = '/login'
+export const ABOUT = '/about'
+export const PORTFOLIO = '/portfolio'
+export const BLOG = '/blog'

@@ -49,6 +49,8 @@ module.exports = merge(common, {
       },
     ],
   },
+  target: ['web', 'es5'],
+
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css',

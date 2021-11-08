@@ -1,15 +1,16 @@
+import { useAuth } from '@/context/AuthContext'
 import styles from '@/styles/navgation.module.scss'
-import { getAuth, signOut } from 'firebase/auth'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Nav = () => {
+  const auth = useAuth()
   const [isModal, setIsModal] = useState(false)
   const ToggleBtn = isModal ? `${styles['active']} ${styles.ly_toggleBtn}` : styles.ly_toggleBtn
   const Togglemenu = isModal ? `${styles['active']} ${styles.sm_headerConts}` : styles.sm_headerConts
   return (
     <>
-      <button className={styles.bl_signout} onClick={() => signOut(getAuth())}>
+      <button className={styles.bl_signout} onClick={() => auth.signout()}>
         SignOut
       </button>
       <button onClick={() => setIsModal(!isModal)} className={ToggleBtn}>

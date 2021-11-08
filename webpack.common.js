@@ -25,14 +25,16 @@ module.exports = {
       '@/pages': path.resolve(__dirname, 'src/pages'),
       '@/utils': path.resolve(__dirname, 'src/utils'),
       '@/assets': path.resolve(__dirname, 'src/assets'),
+      '@/constants': path.resolve(__dirname, 'src/constants'),
+      '@/context': path.resolve(__dirname, 'src/context'),
     },
   },
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
     },
+    historyApiFallback: true,
     open: true,
-    watchFiles: ['src/**/*'],
     port: 3000,
   },
   optimization: {
