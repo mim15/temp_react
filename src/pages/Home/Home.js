@@ -1,4 +1,4 @@
-import Layout from '@/components/Layout/Layout'
+import Layout from '@/components/Layout'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './home.module.scss'

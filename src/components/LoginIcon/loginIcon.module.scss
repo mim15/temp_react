@@ -1,0 +1,20 @@
+.bl_LoginIconConts {
+  margin: 30px;
+  .bl_LoginIconConts_nav {
+    display: flex;
+    justify-content: space-around;
+
+    li:nth-child(n + 2) {
+      margin-left: 8px;
+    }
+    li {
+      a {
+        display: inline-block;
+        height: 24px;
+        .pc_snsList {
+          fill: #BEBAB3;
+        }
+      }
+    }
+  }
+}

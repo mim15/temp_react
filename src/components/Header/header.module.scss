@@ -1,0 +1,22 @@
+@import '@/styles/reset.scss';
+@import '@/styles/variables.scss';
+
+.ly_header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  z-index: 1;
+  .ly_header_inner {
+    padding: 0 16px;
+    box-sizing: border-box;
+    @include mq-up(md) {
+      padding: 0 64px;
+    }
+    .bl_headerConts {
+      display: flex;
+      height: 96px;
+      align-items: center;
+    }
+  }
+}
