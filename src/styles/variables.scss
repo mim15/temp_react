@@ -27,13 +27,18 @@ $breakpoint-down: (
 
 // font setting
 @font-face {
-  font-family: 'Roboto-Bold';
-  src: url('@/assets/font/Roboto-Bold.woff2') format('woff2');
+  font-family: 'Roboto-Regular';
+  src: url('@/assets/font/Roboto-Regular.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Roboto-Regular';
-  src: url('@/assets/font/Roboto-Regular.woff2') format('woff2');
+  font-family: 'Roboto-Medium';
+  src: url('@/assets/font/Roboto-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url('@/assets/font/Roboto-Bold.woff2') format('woff2');
 }
 
 @font-face {
@@ -44,4 +49,9 @@ $breakpoint-down: (
 @font-face {
   font-family: 'NotoSerifJP-R';
   src: url('@/assets/font/NotoSerifJP-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'NotoSerifJP-M';
+  src: url('@/assets/font/NotoSerifJP-Medium.woff2') format('woff2');
 }

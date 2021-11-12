@@ -1,3 +1,3 @@
-import BlockSingle from './BlogSingle'
+import BlogSingle from './BlogSingle'
 
-export { BlockSingle }
+export { BlogSingle }

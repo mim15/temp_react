@@ -1,100 +1,106 @@
-import { createClient } from 'contentful-management'
-import { useEffect, useRef, useState } from 'react'
-import { useHistory, useParams } from 'react-router-dom'
-import AboutWriterCard2 from '../components/AboutWriterCard2/AboutWriterCard2'
-import BlogBottom from '../components/BlogBottom/BlogBottom'
-import BlogHeader from '../components/BlogHeader/BlogHeader'
-import CommentSection from '../components/CommentSection/CommentSection'
-import SpinnerFullscreen from '../components/SpinnerFullscreen/SpinnerFullscreen'
-import Container from '../components/Wrapper/Container'
-import { ReadingSection } from '../components/Wrapper/ReadingSection'
-import { SpaceTop } from '../components/Wrapper/SpaceTop'
-import BlogContent from '../containers/BlogContent/BlogContent'
-import EditorPicked from '../containers/EditorPicked/EditorPicked'
-import client from '../contentful/createClient'
-import { scrollToTop } from '../util/scrollToTop'
+import { fetcher } from '@/utils/fetcher'
+import moment from 'moment'
+import React from 'react'
+import ReactMarkdown from 'react-markdown'
+import { useParams } from 'react-router-dom'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { nord as darcula } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import remarkGfm from 'remark-gfm'
+import styled from 'styled-components'
+import useSWR from 'swr'
 
-const a = ['Less Than 5 Minutes', 'Inspiration', 'Easy Read', 'Simple', 'English', 'Modern', 'Superb']
+const Container = styled.section`
+  margin: 30px;
+`
 
-const genTags = () => {
-  // Salin array
-  const b = [...a]
-  // Randomize berapa tags yang harus diambil
-  const r = Math.floor(Math.random() * b.length)
+const TitlePost = styled.h2`
+  text-align: start;
+  margin: 0 auto;
+  max-width: 50%;
+  font-size: 35px;
+  color: #111111;
+`
 
-  const choosenTags = []
-  for (let i = 0; i < r; i += 1) {
-    // Randomize nomor berapa yang harus diambil
-    const r2 = Math.floor(Math.random() * b.length)
-    const choose = b.splice(r2, 1)[0]
-    choosenTags.push(choose)
-  }
+const DataPost = styled.div`
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
-  if (choosenTags.length === 0) {
-    choosenTags.push(b[r])
-  }
+const UserIcon = styled.div`
+  height: 40px;
+  width: 40px;
+  margin: 0 10px;
+  border-radius: 50%;
+  background: #123456;
+`
 
-  return choosenTags
-}
+const UserData = styled.p`
+  color: #123456;
+`
 
-const c = createClient({
-  accessToken: process.env.REACT_APP_CONTENTFUL_MANAGEMENT_KEY,
-})
+const HeaderPost = styled.div`
+  height: 200px;
+  width: 100%;
+`
 
-const BlockSingle = () => {
-  const history = useHistory()
-  const { slug } = useParams()
-  const [blog, setBlog] = useState()
-  const mountedRef = useRef(true)
-  const [loading, setLoading] = useState(false)
+const HeaderImage = styled.img`
+  height: auto;
+`
 
-  const getBlog = async () => {
-    setLoading(true)
-    try {
-      const res = await client.getEntries({
-        content_type: 'blogPost',
-        'fields.slug': slug,
-      })
+const BodyPost = styled(ReactMarkdown)`
+  margin: 0 auto;
+  max-width: 50%;
+`
 
-      const blog = res.items[0]
-      if (blog) {
-        setBlog(blog)
-        setLoading(false)
-      } else {
-        history.push('/404')
-      }
+const BlogSongle = () => {
+  const params = useParams()
+  const { data, error } = useSWR(
+    `https://cdn.contentful.com/spaces/9ugiyt41p6d2/environments/master/entries/${params.id}?access_token=66dJAhJ0t5bD3sAHpY3GE-SEenRaOWikMeBjts2FlV4`,
+    fetcher
+  )
 
-      scrollToTop()
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  useEffect(() => {
-    getBlog()
-    return () => {
-      mountedRef.current = false
-    }
-  }, [slug])
-
-  if (loading || !blog) return <SpinnerFullscreen />
+  if (error) return <div>Ha ocurrido un error compadre</div>
+  if (!data) return <div>Estamos cargando mi KING</div>
 
   return (
-    <>
-      <SpaceTop />
-      <Container>
-        <ReadingSection>
-          <BlogHeader blog={blog} />
-          <BlogContent blog={blog} />
-          <hr />
-          <BlogBottom blog={blog} />
-          <AboutWriterCard2 />
-          <CommentSection blog={blog} />
-        </ReadingSection>
-      </Container>
-      <EditorPicked />
-    </>
+    <Container>
+      <HeaderPost>
+        <HeaderImage src="" alt=""></HeaderImage>
+      </HeaderPost>
+      <TitlePost>{data.fields.title}</TitlePost>
+      <DataPost>
+        <UserIcon></UserIcon>
+        <UserData>
+          {data.fields.creationBy} |{moment(data.fields.creationDate).format('ll')}
+        </UserData>
+      </DataPost>
+      <BodyPost
+        components={{
+          code({ node, inline, className, children, ...props }) {
+            const match = /language-(\w+)/.exec(className || '')
+            return !inline && match ? (
+              <SyntaxHighlighter
+                children={String(children).replace(/\n$/, '')}
+                style={darcula}
+                language={match[1]}
+                PreTag="div"
+                {...props}
+              />
+            ) : (
+              <code className={className} {...props}>
+                {children}
+              </code>
+            )
+          },
+        }}
+        remarkPlugins={[remarkGfm]}
+      >
+        {data.fields.description}
+      </BodyPost>
+    </Container>
   )
 }
 
-export default BlockSingle
+export default BlogSongle

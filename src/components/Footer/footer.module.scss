@@ -11,13 +11,12 @@
       display: flex;
       align-items: center;
       height: 40px;
+      .el_cpTtl {
+        font-family: 'Roboto-Regular';
+        font-size: 12px;
+        line-height: 12px;
+        color: #ffffff;
+      }
     }
   }
-}
-
-.el_cpTtl {
-  font-family: 'Roboto-Regular';
-  font-size: 12px;
-  line-height: 12px;
-  color: #ffffff;
 }

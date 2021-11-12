@@ -1,6 +1,6 @@
-import {FooterIcon} from '@/components/FooterIcon'
-import styles from './footer.module.scss'
+import { FooterIcon } from '@/components/FooterIcon'
 import React from 'react'
+import styles from './footer.module.scss'
 
 const Footer = () => {
   return (

@@ -1,3 +1,3 @@
-import Portfolio from "./PortfolioList"
+import Portfolio from './Portfolio'
 
-export {Portfolio}
+export { Portfolio }

@@ -11,7 +11,6 @@ export const WEBAPPA = '/webappa'
 export const WEBAPPB = '/webappb'
 // Blog
 export const BLOG = '/blog'
-export const BLOGS = '/blogs'
-export const BLOGREAD = '/blogs/:id'
+export const POST = '/blog/:id'
 // Notfound
 export const NOTFOUND = '*'

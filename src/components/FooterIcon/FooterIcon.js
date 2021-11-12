@@ -1,8 +1,8 @@
 import instagramIcon from '@/assets/img/instagramIcon.svg'
 import mailIcon from '@/assets/img/mailIcon.svg'
 import twitterIcon from '@/assets/img/twitterIcon.svg'
-import styles from './FooterIcon.module.scss'
 import React from 'react'
+import styles from './footerIcon.module.scss'
 
 const FooterIcon = () => {
   return (
