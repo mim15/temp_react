@@ -1,6 +1,7 @@
 @import '@/styles/variables.scss';
 
 .ly_cont {
+  min-height: calc(100vh - 137px);
   padding: 0 16px;
   margin-bottom: 72px;
   @include mq-up(md) {
@@ -8,7 +9,7 @@
   @include mq-up(xl) {
     max-width: 1200px;
     margin: 0 auto;
-    margin-bottom: 72px;
+    padding-bottom: 72px;
   }
   .bl_contTitle {
     padding-top: 16px;

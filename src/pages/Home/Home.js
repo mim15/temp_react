@@ -4,16 +4,15 @@ import { Link } from 'react-router-dom'
 import styles from './home.module.scss'
 
 export default function Home() {
-  const text = 'Design\nis chewing gum\nfor me'
   return (
     <>
       <Layout>
         <div className={styles.ly_body}>
           <div className={styles.ly_body_inner}>
             <h1 className={styles.bl_bodyTxt}>
-              {text.split('\n').map((i, key) => {
-                return <div key={key}>{i}</div>
-              })}
+              <span>Design</span>
+              <span>is chewing gum</span>
+              <span>for me</span>
             </h1>
             <nav className={styles.bl_bodyConts}>
               <ul className={styles.bl_bodyConts_nav}>

@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const webpack = require('webpack')
 const dotenv = require('dotenv')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
@@ -11,6 +12,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
+    new CopyPlugin({
+      patterns: [{ from: './src/favicon.svg', to: 'favicon.svg' }],
+    }),
+
     new CleanWebpackPlugin({}),
     new webpack.DefinePlugin({
       'process.env': JSON.stringify(dotenv.config().parsed),

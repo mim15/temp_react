@@ -2,7 +2,6 @@
 
 .ly_body {
   min-height: calc(100vh - 137px);
-  height: calc(100vh - 137px);
   padding: 0 16px;
   @include mq-up(md) {
     max-width: 700px;
@@ -20,13 +19,61 @@
       font-family: 'Roboto-Black';
       font-size: 48px;
       line-height: 130%;
+      @include mq-up(md) {
+        font-size: 56px;
+        line-height: 140%;
+      }
       @include mq-up(lg) {
         font-size: 72px;
         line-height: 150%;
       }
+      span {
+        display: block;
+      }
+      span:nth-child(1) {
+        opacity: 0;
+        animation: fadeIn 1s ease-in 0s forwards;
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      }
+      span:nth-child(2) {
+        opacity: 0;
+        animation: fadeIn 1s ease-in 1s forwards;
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      }
+      span:nth-child(3) {
+        opacity: 0;
+        animation: fadeIn 1s ease-in 2s forwards;
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateX(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0px);
+          }
+        }
+      }
     }
     .bl_bodyConts {
-      margin-top: 10%;
+      margin-top: 70px;
+      @include mq-up(md) {
+        margin-top: 240px;
+      }
       @include mq-up(lg) {
         display: none;
       }

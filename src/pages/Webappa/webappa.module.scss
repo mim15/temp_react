@@ -3,11 +3,10 @@
 .ly_cont {
   min-height: calc(100vh - 137px);
   padding: 0 16px;
-  margin-bottom: 36px;
+  padding-bottom: 32px;
   @include mq-up(xl) {
     max-width: 1200px;
     margin: 0 auto;
-    margin-bottom: 72px;
   }
   .bl_contTitle {
     padding-top: 16px;
@@ -97,14 +96,17 @@
     .bl_cont_desc {
       margin-top: 8px;
       font-family: NotoSerifJP-R;
+      font-weight: 500;
     }
     .bl_cont_url {
       margin-top: 8px;
       font-family: NotoSerifJP-R;
+      font-weight: 500;
     }
     .bl_cont_work {
       margin-top: 8px;
       font-family: NotoSerifJP-R;
+      font-weight: 400;
     }
     .bl_cont_time {
       margin-top: 8px;

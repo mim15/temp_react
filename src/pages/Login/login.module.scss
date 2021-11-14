@@ -27,9 +27,10 @@
         text-transform: uppercase;
       }
       .el_label_txt {
-        background: #E8E6DC;
+        background: #e8e6dc;
         margin-top: 8px;
         width: 100%;
+        height: 36px;
       }
       .el_label_txt::placeholder {
         padding-left: 5px;
@@ -45,19 +46,22 @@
     .bl_form_submitWrapper {
       .el_btn {
         font-family: Roboto-Regular;
-        color: #FAFAF8;
+        color: #fafaf8;
         font-size: 14px;
         position: relative;
         width: 112px;
         height: 16px;
-        background: #90A69B;
+        background: #90a69b;
         text-transform: uppercase;
         vertical-align: middle;
       }
+      .el_btn:hover {
+        opacity: 70%;
+      }
     }
     .bl_form_submitWrapper::before {
-      content: "";
-      background: #90A69B;
+      content: '';
+      background: #90a69b;
       position: absolute;
       left: 0;
       top: 7px;
@@ -65,13 +69,16 @@
       width: 40px;
     }
     .bl_form_submitWrapper::after {
-      content: "";
-      background: #90A69B;
+      content: '';
+      background: #90a69b;
       position: absolute;
       right: 0;
       top: 7px;
       height: 2px;
       width: 40px;
+    }
+    .bl_form_submitWrapper:hover {
+      opacity: 70%;
     }
   }
 }

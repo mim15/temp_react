@@ -1,3 +1,4 @@
+import Layout from '@/components/Layout'
 import { ListPost } from '@/components/ListPost'
 import { fetcher } from '@/utils/fetcher'
 import * as React from 'react'
@@ -5,7 +6,8 @@ import useSWR from 'swr'
 
 const Blog = () => {
   const { data, error } = useSWR(
-    'https://cdn.contentful.com/spaces/9ugiyt41p6d2/environments/master/entries?access_token=66dJAhJ0t5bD3sAHpY3GE-SEenRaOWikMeBjts2FlV4',
+    `https://cdn.contentful.com/spaces/${process.env.REACT_APP_SPACE_ID}/environments/master/entries?access_token=${process.env.REACT_APP_CDA_TOKEN}&content_type=article
+`,
     fetcher
   )
 
@@ -18,7 +20,9 @@ const Blog = () => {
 
   return (
     <>
-      <ListPost data={data} error={error} />
+      <Layout>
+        <ListPost data={data} error={error} />
+      </Layout>
     </>
   )
 }
