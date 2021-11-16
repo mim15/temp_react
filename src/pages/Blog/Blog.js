@@ -1,4 +1,3 @@
-import Layout from '@/components/Layout'
 import { ListPost } from '@/components/ListPost'
 import { fetcher } from '@/utils/fetcher'
 import * as React from 'react'
@@ -20,9 +19,7 @@ const Blog = () => {
 
   return (
     <>
-      <Layout>
-        <ListPost data={data} error={error} />
-      </Layout>
+      <ListPost data={data} error={error} />
     </>
   )
 }

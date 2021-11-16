@@ -1,0 +1,18 @@
+.bl_cont_breadcrumb {
+  display: inline-block;
+  margin-top: 8px;
+  color: #1a1a1a;
+  font-family: Roboto-Bold;
+  font-size: 14px;
+  line-height: 26px;
+  text-transform: uppercase;
+}
+.bl_cont_breadcrumb::before {
+  content: '';
+  background-image: url('@/assets/img/markIcon.svg');
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  vertical-align: baseline;
+  margin-right: 4px;
+}

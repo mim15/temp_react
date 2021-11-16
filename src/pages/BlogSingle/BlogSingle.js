@@ -1,16 +1,18 @@
-import Layout from '@/components/Layout'
 import { fetcher } from '@/utils/fetcher'
+import moment from 'moment'
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import useSWR from 'swr'
 import styles from './blogsingle.module.scss'
+import BackBtn from '@/components/BackBtn'
 
 const md = require('markdown-it')()
 
 const BlogSongle = () => {
-  const params = useParams()
   const { data, error } = useSWR(
-    `https://cdn.contentful.com/spaces/${process.env.REACT_APP_SPACE_ID}/environments/master/entries/${params.id}?access_token=${process.env.REACT_APP_CDA_TOKEN}`,
+    `https://cdn.contentful.com/spaces/${process.env.REACT_APP_SPACE_ID}/environments/master/entries/${
+      useParams().id
+    }?access_token=${process.env.REACT_APP_CDA_TOKEN}`,
     fetcher
   )
 
@@ -19,12 +21,13 @@ const BlogSongle = () => {
 
   return (
     <>
-      <Layout>
-        <div className={styles.ly_cont}>
-          <h2>{data.fields.title}</h2>
-          <div dangerouslySetInnerHTML={{ __html: md.render(data.fields.description) }}></div>
-        </div>
-      </Layout>
+      <div className={styles.ly_cont}>
+        <div className={styles.bl_contTitle}>Blog</div>
+        <BackBtn backLink="/blog" />
+        <h1 className={styles.bl_contsubTitle}>{data.fields.title}</h1>
+        <div className={styles.bl_cont_date}>{moment(data.fields.createat).format('YYYY/MM/DD')}</div>
+        <div className={styles.bl_contBody} dangerouslySetInnerHTML={{ __html: md.render(data.fields.content) }}></div>
+      </div>
     </>
   )
 }

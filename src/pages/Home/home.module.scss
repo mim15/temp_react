@@ -14,10 +14,11 @@
   }
   // background: url(@/assets/img/VM_test.png) center / cover;
   .ly_body_inner {
+    width: 100%;
     padding-top: 10%;
-    .bl_bodyTxt {
+    .bl_body_ttl {
       font-family: 'Roboto-Black';
-      font-size: 48px;
+      font-size: 40px;
       line-height: 130%;
       @include mq-up(md) {
         font-size: 56px;
@@ -27,7 +28,7 @@
         font-size: 72px;
         line-height: 150%;
       }
-      span {
+      .bl_body_span {
         display: block;
       }
       span:nth-child(1) {

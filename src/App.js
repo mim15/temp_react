@@ -1,4 +1,6 @@
+import { Loading } from '@/components/Loading'
 import PrivateRoute from '@/components/PrivateRoute'
+import { ScrollTop } from '@/components/ScrollTop'
 import * as ROUTES from '@/constants/routes'
 import { useAuth } from '@/context/AuthContext'
 import { About } from '@/pages/About'
@@ -12,7 +14,6 @@ import { WebappA } from '@/pages/Webappa'
 import { WebappB } from '@/pages/Webappb'
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { Loading } from './components/Loading'
 
 const App = () => {
   const { isLoading } = useAuth()
@@ -20,9 +21,9 @@ const App = () => {
     <Loading />
   ) : (
     <Router>
+      <ScrollTop />
       <Switch>
         <Route path={ROUTES.LOGIN} component={Login} />
-
         <PrivateRoute exact path={ROUTES.HOME}>
           <Home />
         </PrivateRoute>
@@ -41,7 +42,7 @@ const App = () => {
         <PrivateRoute exact path={ROUTES.WEBAPPB}>
           <WebappB />
         </PrivateRoute>
-        <PrivateRoute exact path={ROUTES.POST}>
+        <PrivateRoute path={ROUTES.POST}>
           <BlogSingle />
         </PrivateRoute>
         <Route component={NotFound} />

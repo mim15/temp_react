@@ -20,19 +20,19 @@
       padding-top: 32px;
     }
   }
-  .bl_contTitle::after {
-    content: '';
-    background-image: url('@/assets/img/markIcon.svg');
-    display: inline-block;
-    height: 8px;
-    width: 8px;
-    vertical-align: baseline;
-    margin-left: 4px;
-  }
+  // .bl_contTitle::after {
+  //   content: '';
+  //   background-image: url('@/assets/img/markIcon.svg');
+  //   display: inline-block;
+  //   height: 8px;
+  //   width: 8px;
+  //   vertical-align: baseline;
+  //   margin-left: 4px;
+  // }
   .bl_media {
     width: 100%;
     height: 198px;
-    margin-top: 24px;
+    margin-top: 16px;
 
     .bl_media_img {
       border-radius: 15px 15px 0 0;
