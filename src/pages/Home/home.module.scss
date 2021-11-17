@@ -1,5 +1,12 @@
 @import '@/styles/variables.scss';
 
+.test {
+  position: absolute;
+  bottom: 100px;
+  left: 200px;
+  z-index: -1;
+}
+
 .ly_body {
   min-height: calc(100vh - 137px);
   padding: 0 16px;
@@ -12,7 +19,6 @@
     max-width: 1200px;
     margin: 0 100px;
   }
-  // background: url(@/assets/img/VM_test.png) center / cover;
   .ly_body_inner {
     width: 100%;
     padding-top: 10%;
@@ -20,6 +26,7 @@
       font-family: 'Roboto-Black';
       font-size: 40px;
       line-height: 130%;
+
       @include mq-up(md) {
         font-size: 56px;
         line-height: 140%;
@@ -30,6 +37,7 @@
       }
       .bl_body_span {
         display: block;
+        z-index: 100;
       }
       span:nth-child(1) {
         opacity: 0;

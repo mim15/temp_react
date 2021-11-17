@@ -1,10 +1,10 @@
+import { BackBtn } from '@/components/BackBtn'
 import { fetcher } from '@/utils/fetcher'
 import moment from 'moment'
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import useSWR from 'swr'
 import styles from './blogsingle.module.scss'
-import BackBtn from '@/components/BackBtn'
 
 const md = require('markdown-it')()
 
