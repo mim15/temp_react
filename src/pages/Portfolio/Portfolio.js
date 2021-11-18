@@ -1,4 +1,4 @@
-import imgs from '@/assets/img/PortfolioList_image_large.png'
+import imgs from '@/assets/img/chat_icon.png'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './portfolio.module.scss'
@@ -14,22 +14,7 @@ const Portfolio = () => {
           <li className={styles.bl_card}>
             <Link to="webappa" className={styles.bl_card_media}>
               <div className={`${styles.bl_card_imgWrapper} ${loaded && styles.load}`}>
-                <img className={styles.bl_card_img} onLoad={() => setLoaded(true)} src={imgs} />
-              </div>
-              <div className={styles.bl_card_body}>
-                <div className={styles.bl_card_tex}>
-                  <h2 className={styles.bl_card_ttl}>Chat App</h2>
-                  <h3 className={styles.bl_media_cat}>APP</h3>
-                  <h3 className={styles.bl_media_date}>TOTAL TIME 12 DAYS</h3>
-                </div>
-              </div>
-            </Link>
-          </li>
-
-          <li className={styles.bl_card}>
-            <Link to="webappb" className={styles.bl_card_media} href="/">
-              <div className={`${styles.bl_card_imgWrapper} ${loaded && styles.load}`}>
-                <img className={styles.bl_card_img} onLoad={() => setLoaded(true)} src={imgs} />
+                <img className={styles.bl_card_img} onLoad={() => setLoaded(true)} src={imgs} alt="chat app" />
               </div>
               <div className={styles.bl_card_body}>
                 <div className={styles.bl_card_tex}>

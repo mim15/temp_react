@@ -11,10 +11,10 @@ const Blog = () => {
   )
 
   if (error) {
-    return <div>Ha ocurrido un error compadre</div>
+    return <div>failed to load</div>
   }
   if (!data) {
-    return <div>Loading....</div>
+    return <div></div>
   }
 
   return (

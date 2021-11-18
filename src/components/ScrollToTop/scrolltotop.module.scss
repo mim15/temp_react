@@ -1,0 +1,13 @@
+@import '@/styles/variables.scss';
+
+.el_scrollTop {
+  position: fixed;
+  right: 30px;
+  bottom: 70px;
+  .el_btn {
+    height: 20px;
+  }
+  @include mq-up(xl) {
+    display: none;
+  }
+}

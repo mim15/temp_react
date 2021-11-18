@@ -49,7 +49,7 @@ function useProvideAuth() {
       })
 
       return () => unsubscribe()
-    }, 2000)
+    }, 4000)
   }, [firebase])
 
   return {
