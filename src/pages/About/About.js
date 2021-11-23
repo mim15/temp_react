@@ -18,8 +18,10 @@ const About = () => {
             <p className={styles.bl_profileName_jp}>重住匡亮</p>
             <p className={styles.bl_profileName_en}>Shigezumi Masaaki</p>
             <p className={styles.bl_profileDiscription_jp}>
-              大学では、建築。専門では、映像。
-              色々な経験をしてきたからこそ、web媒体のデザインを通して、様々な企業の問題を解決するデザイナーになりたいと思ってます。
+              大学では、建築学び、その後兄の影響で専門学校で、映像の勉強をしました。
+              趣味は、映画鑑賞やアニメを観ることです。
+              大学までは、テニスを継続的に部活や個人でコートを借りてやっていました。
+              30歳になっても色々な事に挑戦したいと思ってます！
             </p>
             <div className={styles.bl_profileDiscription_en}>
               In college, I studied architecture. My specialty is video. Because of my various experiences, I would like

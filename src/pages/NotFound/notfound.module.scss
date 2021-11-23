@@ -1,0 +1,29 @@
+.ly_cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .bl_block404 {
+    position: relative;
+    z-index: 2;
+    transform: translate3d(0, 0, 0);
+    padding: 60px 0 20px;
+    margin: 3em;
+    overflow: visible;
+    svg {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  .bl_title {
+    font-family: 'Roboto-Bold';
+    font-size: 40px;
+  }
+  .bl_link {
+    a {
+      color: #111;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}

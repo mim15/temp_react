@@ -1,4 +1,4 @@
-import imgs from '@/assets/img/chat_icon.png'
+import imgs from '@/assets/img/chat_icon.svg'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './portfolio.module.scss'

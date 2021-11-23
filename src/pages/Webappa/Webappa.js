@@ -1,5 +1,6 @@
+import Chat from '@/assets/img/chat_bg.svg'
+import { BackBtn } from '@/components/BackBtn'
 import React from 'react'
-import { BackBtn } from '../../components/BackBtn'
 import styles from './webappa.module.scss'
 
 const WebappA = () => {
@@ -9,7 +10,7 @@ const WebappA = () => {
         <h1 className={styles.bl_contTitle}>Portfolio</h1>
         <BackBtn backLink="/portfolio" />
         <div className={styles.bl_media}>
-          <img className={styles.bl_media_img} src="https://picsum.photos/500/300/?image=10" alt="" />
+          <img className={styles.bl_media_img} src={Chat} alt="" />
         </div>
         <div className={styles.card_body}>
           <div className={styles.card_Tex}>
@@ -20,18 +21,20 @@ const WebappA = () => {
         </div>
         <section className={styles.ly_cont_sect}>
           <h2 className={styles.bl_cont_ttl}>作品について</h2>
-          <p className={styles.bl_cont_desc}>説明：架空のレストランサイト</p>
+          <p className={styles.bl_cont_desc}>説明：チャット　アプリ</p>
           <p className={styles.bl_cont_url}>
             作品URL：<a href="http://example.com/">http://example.com/</a>
           </p>
           <p className={styles.bl_cont_work}>作業：デザイン・コーディング</p>
           <p className={styles.bl_cont_time}>制作期間：2週間</p>
-          <p className={styles.bl_cont_env}>作業環境：Photoshop・Illustrator・ Visual Studio Code・React</p>
-          <p className={styles.bl_cont_prog}>使用言語：HTML・SCSS・JavaScript</p>
-          <p className={styles.bl_cont_persona}>ペルソナ：30代女性向けの化粧品</p>
+          <p className={styles.bl_cont_env}>作業環境：Visual Studio Code・React</p>
+          <p className={styles.bl_cont_prog}>使用したサービス：Firebase</p>
+          <p className={styles.bl_cont_persona}>
+            アプリを作った理由：タスク管理ツールよりも相互のやり取りが出来るものを構築したく思ってトライしてみました。
+          </p>
           <p className={styles.bl_cont_design}>デザインで意識したこと</p>
           <ul className={styles.bl_cont_points}>
-            <li className={styles.bl_cont_point}>A TEST</li>
+            <li className={styles.bl_cont_point}>今回、TailwindというCSSフレームワークで、デザインは構成しました。</li>
             <li className={styles.bl_cont_point}>B TEST</li>
             <li className={styles.bl_cont_point}>C TEST</li>
             <li className={styles.bl_cont_point}>D TEST</li>

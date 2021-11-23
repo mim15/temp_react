@@ -1,5 +1,5 @@
-import pcprofile from '@/assets/img/pc_profile.png'
-import smprofile from '@/assets/img/sm_profile.png'
+import pcprofile from '@/assets/img/profile_pc.svg'
+import smprofile from '@/assets/img/profile_sm.svg'
 import styles from '@/styles/profile.module.scss'
 import React from 'react'
 import { ResponsiveImage, ResponsiveImageSize } from 'react-responsive-image'

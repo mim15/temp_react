@@ -14,7 +14,6 @@ const defaultOptions = {
 }
 
 export default function Home() {
-  const uni_width = 500
   return (
     <>
       <div className={styles.ly_body}>
@@ -25,7 +24,7 @@ export default function Home() {
             <span className={styles.bl_body_span}>for me</span>
           </h1>
           <div className={styles.test}>
-            <Lottie options={defaultOptions} width={uni_width} height={500} />
+            <Lottie options={defaultOptions} width={500} height={500} />
           </div>
           <nav className={styles.bl_bodyConts}>
             <ul className={styles.bl_bodyConts_nav}>

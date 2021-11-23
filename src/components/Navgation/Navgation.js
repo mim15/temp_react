@@ -20,17 +20,17 @@ const Nav = () => {
 
       <div className={Togglemenu}>
         <ul className={styles.sm_headerConts_nav}>
-          <li>
-            <Link to="/about" className={styles.sm_headerConts_ttl}>
+          <li onClick={() => setIsModal(!isModal)}>
+            <Link  to="/about" className={styles.sm_headerConts_ttl}>
               About me
             </Link>
           </li>
-          <li>
+          <li onClick={() => setIsModal(!isModal)}>
             <Link to="/portfolio" className={styles.sm_headerConts_ttl}>
               Portfolio
             </Link>
           </li>
-          <li>
+          <li onClick={() => setIsModal(!isModal)}>
             <Link to="/blog" className={styles.sm_headerConts_ttl}>
               Blog
             </Link>

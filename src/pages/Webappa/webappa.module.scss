@@ -7,6 +7,7 @@
   @include mq-up(xl) {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0;
   }
   .bl_contTitle {
     padding-top: 16px;
@@ -20,22 +21,14 @@
       padding-top: 32px;
     }
   }
-  // .bl_contTitle::after {
-  //   content: '';
-  //   background-image: url('@/assets/img/markIcon.svg');
-  //   display: inline-block;
-  //   height: 8px;
-  //   width: 8px;
-  //   vertical-align: baseline;
-  //   margin-left: 4px;
-  // }
   .bl_media {
     width: 100%;
     height: 198px;
     margin-top: 16px;
 
     .bl_media_img {
-      border-radius: 15px 15px 0 0;
+      border: 1px solid #383838;
+      border-radius: 20px 20px 0 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -84,6 +77,7 @@
   .ly_cont_sect {
     border: 1px solid #383838;
     padding: 0 8px;
+    background-color: #fff;
     @include mq-up(lg) {
       padding: 0 32px;
     }
